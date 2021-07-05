@@ -31,6 +31,7 @@ export default {
       }
     }
     .links{
+      display: none;
       margin-bottom: 8px;
       a:not(:last-child) {
         margin-right: 40px;

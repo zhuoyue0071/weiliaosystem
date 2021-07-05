@@ -5,7 +5,6 @@
         <img alt="logo" class="logo" src="@/assets/img/logo.png" />
         <span class="title">{{systemName}}</span>
       </div>
-      <div class="desc">Ant Design 是西湖区最具影响力的 Web 设计规范</div>
     </div>
     <div class="login">
       <a-form @submit="onSubmit" :form="form">
@@ -54,20 +53,16 @@
             </a-form-item>
           </a-tab-pane>
         </a-tabs>
-        <div>
+        <div style="display:none;">
           <a-checkbox :checked="true" >自动登录</a-checkbox>
-          <a style="float: right">忘记密码</a>
+          <div style="float: right;">
+            <router-link to="/dashboard/workplace">注册账户</router-link>
+            <a  style="margin-left:20px;">忘记密码</a>
+          </div>
         </div>
         <a-form-item>
           <a-button :loading="logging" style="width: 100%;margin-top: 24px" size="large" htmlType="submit" type="primary">登录</a-button>
         </a-form-item>
-        <div>
-          其他登录方式
-          <a-icon class="icon" type="alipay-circle" />
-          <a-icon class="icon" type="taobao-circle" />
-          <a-icon class="icon" type="weibo-circle" />
-          <router-link style="float: right" to="/dashboard/workplace" >注册账户</router-link>
-        </div>
       </a-form>
     </div>
   </common-layout>
@@ -143,8 +138,8 @@ export default {
           text-decoration: none;
         }
         .logo {
-          height: 44px;
-          vertical-align: top;
+          height: 20px;
+          vertical-align: baseline;
           margin-right: 16px;
         }
         .title {
@@ -166,6 +161,7 @@ export default {
     .login{
       width: 368px;
       margin: 0 auto;
+      margin-top: 6%;
       @media screen and (max-width: 576px) {
         width: 95%;
       }

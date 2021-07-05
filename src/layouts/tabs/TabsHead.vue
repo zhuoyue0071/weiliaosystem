@@ -7,12 +7,13 @@
         :hide-add="true"
     >
       <a-tooltip placement="left" :title="lockTitle" slot="tabBarExtraContent">
-        <a-icon
-            theme="filled"
-            @click="onLockClick"
-            class="header-lock"
-            :type="fixedTabs ? 'lock' : 'unlock'"
-        />
+        <div class="header-lock">
+            <a-icon
+                theme="filled"
+                :type="fixedTabs ? 'lock' : 'unlock'"
+            />
+            <span @click="onLockClick">{{lockTitle}}</span>
+        </div>
       </a-tooltip>
       <a-tab-pane v-for="page in pageList" :key="page.path">
         <div slot="tab" class="tab" @contextmenu="e => onContextmenu(page.path, e)">
@@ -146,9 +147,12 @@
     margin: -16px auto 8px;
     transition: top,left 0.2s;
     .header-lock{
-      font-size: 18px;
+      font-size: 14px;
       cursor: pointer;
       color: @primary-3;
+      span {
+        margin-left: 5px;
+      }
       &:hover{
         color: @primary-color;
       }

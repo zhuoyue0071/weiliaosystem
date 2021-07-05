@@ -1,6 +1,7 @@
 import TabsView from '@/layouts/tabs/TabsView'
 import BlankView from '@/layouts/BlankView'
 import PageView from '@/layouts/PageView'
+import TreeView from '@/layouts/TreeView'
 
 // 路由配置
 const options = {
@@ -77,6 +78,26 @@ const options = {
               name: '高级表单',
               component: () => import('@/pages/form/advance'),
             }
+          ]
+        },
+        {
+          path: 'customer',
+          name: '客户管理',
+          meta: {
+            icon: 'file-word',
+          },
+          component: TreeView,
+          children: [
+            {
+              path: 'info',
+              name: '客户信息管理',
+              component: () => import('@/pages/customer/info')
+            },
+            {
+              path: 'visit',
+              name: '客户拜访管理',
+              component: () => import('@/pages/customer/visit')
+            },
           ]
         },
         {
@@ -276,7 +297,7 @@ const options = {
             icon: 'file-word',
             link: 'https://iczer.gitee.io/vue-antd-admin-docs/'
           }
-        }
+        },
       ]
     },
   ]
